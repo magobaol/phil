@@ -1,4 +1,5 @@
 import * as CaseConverters from './Filters/caseConverters'
+import { Filter } from './Filters/filter'
 import { toSpace } from './Filters/respacer';
 
 export class TextTransformer {
@@ -35,6 +36,10 @@ export class TextTransformer {
 
   getText() {
     return this.text
+  }
+
+  getLastFilter() {
+    return this.appliedFilters[this.appliedFilters.length-1];
   }
 
   public toSpace() {
@@ -80,6 +85,57 @@ export class TextTransformer {
   public toSpinal() {
     this.apply(CaseConverters.toSpinal)
     return this
+  }
+
+  public getAlfredItem() {
+    let lastFilter = this.getLastFilter()
+    let subtitle = ''
+    let uid = ''
+
+    switch (lastFilter.filter) {
+      case 'toSpace':
+        subtitle = 'Normally spaced'
+        uid = 'spaced'
+        break
+      case 'toUpper':
+        subtitle = 'UPPER CASE'
+        uid = 'uppercase'
+        break
+      case 'toLower':
+        subtitle = 'lower case'
+        uid = 'lowercase'
+        break
+      case 'toTitle':
+        subtitle = 'Title Case'
+        uid = 'titlecase'
+        break
+      case 'toSentence':
+        subtitle = 'Sentence case'
+        uid = 'sentencecase'
+        break
+      case 'toCamel':
+        subtitle = 'camelCase'
+        uid = 'camelcase'
+        break
+      case 'toPascal':
+        subtitle = 'PascalCase'
+        uid = 'pascalcase'
+        break
+      case 'toSnake':
+        subtitle = 'snake_case'
+        uid = 'snakecase'
+        break
+      case 'toSpinal':
+        subtitle = 'spinal-case'
+        uid = 'spinalcase'
+        break
+    }
+    return {
+      title: lastFilter.after,
+      arg: lastFilter.after,
+      uid: uid,
+      subtitle: subtitle
+    }
   }
 
 }

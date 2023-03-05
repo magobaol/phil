@@ -1,1 +1,1 @@
-type Filter = (text: string) => string;
+export type Filter = (text: string) => string;
