@@ -1,0 +1,1 @@
+type Filter = (text: string) => string;
