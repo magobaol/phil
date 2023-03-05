@@ -2,12 +2,17 @@
   "name": "phil",
   "version": "1.0.0",
   "description": "A text filter",
-  "main": "src/index.js",
+  "main": "src/index.ts",
+  "bin": "out/src/index.js",
   "scripts": {
     "build": "npx tsc",
-    "clean": "rm -rf out",
+    "clean": "rm -rf out dist bin",
     "test": "npx jest",
     "release": "npx gulp"
+  },
+  "pkg": {
+    "targets": [ "node18-macos-arm64" ],
+    "outputPath": "bin"
   },
   "author": "Francesco Face",
   "license": "ISC",
