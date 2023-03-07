@@ -1,7 +1,7 @@
 'use strict';
 
-const { Command, Option: commanderOption } = require('commander');
-import {TextTransformer} from "./TextTransformer";
+import { Command, Option } from 'commander';
+import { TextTransformer } from "./TextTransformer";
 
 const program = new Command();
 
@@ -11,7 +11,7 @@ program
     .description('Filter text in input')
     .argument('<string>', 'Text to filter')
     .addOption(
-        new commanderOption('-cc, --convert-case <string>', 'Convert case').choices([
+        new Option('-cc, --convert-case <string>', 'Convert case').choices([
             'space',
             'upper', 'lower', 'title', 'sentence', 'camel', 'pascal', 'snake', 'spinal'
         ])
