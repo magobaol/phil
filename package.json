@@ -3,18 +3,12 @@
   "version": "1.0.0",
   "description": "A text filter",
   "main": "src/index.ts",
-  "bin": "out/src/index.js",
   "scripts": {
     "build": "npx tsc",
     "clean": "rm -rf out dist bin",
     "test": "npx jest",
-    "release": "npx gulp"
-  },
-  "pkg": {
-    "targets": [
-      "node18-macos-arm64"
-    ],
-    "outputPath": "bin"
+    "release": "pkg -t node18-macos-arm64 -o bin/phil ./out/src/index.js",
+    "release-js": "npx gulp"
   },
   "author": "Francesco Face",
   "license": "ISC",
@@ -23,6 +17,7 @@
     "@types/node": "^18.14.6",
     "gulp": "^4.0.2",
     "gulp-chmod": "^3.0.0",
+    "gulp-concat": "^2.6.1",
     "gulp-insert": "^0.5.0",
     "gulp-typescript": "^6.0.0-alpha.1",
     "gulp-uglify": "^3.0.2",
