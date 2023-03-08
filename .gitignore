@@ -3,3 +3,4 @@ out
 dist
 bin
 *.iml
+lib

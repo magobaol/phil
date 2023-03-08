@@ -1,14 +1,17 @@
 {
-  "name": "phil",
+  "name": "@magobaol/phil",
   "version": "1.0.0",
   "description": "A text filter",
-  "main": "src/index.ts",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "build": "npx tsc",
-    "clean": "rm -rf out dist bin",
+    "clean": "rm -rf out dist bin lib",
     "test": "npx jest",
     "release": "pkg -t node18-macos-arm64 -o bin/phil ./out/src/index.js",
-    "release-js": "npx gulp"
+    "release-js": "npx gulp",
+    "prepare" : "npm run build",
+    "prepublishOnly" : "npm test"
   },
   "author": "Francesco Face",
   "license": "ISC",
@@ -28,5 +31,17 @@
   },
   "dependencies": {
     "commander": "^10.0.0"
-  }
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/magobaol/phil.git"
+  },
+  "bugs": {
+    "url": "https://github.com/magobaol/phil/issues"
+  },
+  "homepage": "https://github.com/magobaol/phil#readme",
+  "files": ["lib/**/*"]
 }
