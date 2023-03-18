@@ -61,4 +61,17 @@ describe('TextTransformer', () => {
     expect(tt.getAppliedFilters()[9].after).toBe('hello world');
 
   })
+  describe('getLastFilter', () => {
+    it('should return last filter', () => {
+      const tt = new TextTransformer('helloWorld')
+      tt
+          .toSpace()
+          .toUpper()
+
+      let lastFilter = tt.getLastFilter();
+      expect(lastFilter.filter).toBe('toUpper');
+      expect(lastFilter.before).toBe('hello World');
+      expect(lastFilter.after).toBe('HELLO WORLD');
+    })
+  })
 })
