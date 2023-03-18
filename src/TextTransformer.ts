@@ -1,9 +1,10 @@
 import * as CaseConverters from './Filters/caseConverters'
 import { Filter } from './Filters/filter'
 import { toSpace } from './Filters/respacer';
+import { AppliedFilter } from "./Filters/appliedFilter";
 
 export class TextTransformer {
-  private appliedFilters: any[] = [];
+  private appliedFilters: AppliedFilter[] = [];
   private text: string;
   constructor(text: string) {
     this.text = text
