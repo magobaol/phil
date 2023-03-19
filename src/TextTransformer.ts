@@ -17,7 +17,7 @@ export class TextTransformer {
   private apply(filter: Filter) {
     const before = this.text
     const after = this.text = filter(this.text)
-    const filterName = filter.name
+    const filterName = filter.filterName
     this.appliedFilters.push({
       filter: filterName,
       before,

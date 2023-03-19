@@ -1,1 +1,4 @@
-export type Filter = (text: string) => string;
+export interface Filter {
+    (text: string): string;
+    filterName: string;
+}

@@ -1,4 +1,7 @@
-type Respacer = (text: string) => string;
+interface Respacer {
+    (text: string): string;
+    filterName: string;
+}
 
 export const toSpace: Respacer = (text: string) => {
     //If there is any space - NO CHANGE
@@ -25,3 +28,4 @@ export const toSpace: Respacer = (text: string) => {
     return text
 
 }
+toSpace.filterName = 'toSpace'
