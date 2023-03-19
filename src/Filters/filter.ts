@@ -1,4 +1,4 @@
 export interface Filter {
-    (text: string): string;
-    filterName: string;
+  (text: string): string;
+  filterName: string;
 }
